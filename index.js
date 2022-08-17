@@ -33,3 +33,12 @@ const reducer = (state = initialState, { type, payload }) => {
 
 
 const store = createStore(reducer)
+
+console.log('InitialState',store.getState())
+
+store.subscribe(() => console.log('updated state',store.getState()))
+
+
+store.dispatch(console.log(store.getState()))
+store.dispatch(console.log(store.getState))
+store.dispatch(console.log(store.getState()))
