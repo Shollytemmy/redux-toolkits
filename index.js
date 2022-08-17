@@ -1,4 +1,5 @@
-// console.log('from Index')
+const redux = require('redux')
+const createStore = redux.createStore
 
 
 const CAKE_ORDERED = 'CAKE_ORDERED'
@@ -19,7 +20,7 @@ const orderCake = () => {
     numOfCakes: 20
 }
 
-export default (state = initialState, { type, payload }) => {
+const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
 
   case first:
@@ -29,3 +30,6 @@ export default (state = initialState, { type, payload }) => {
     return state
   }
 }
+
+
+const store = createStore(reducer)
