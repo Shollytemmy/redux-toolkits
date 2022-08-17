@@ -23,7 +23,7 @@ const orderCake = () => {
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
 
-  case first:
+  case  CAKE_ORDERED:
     return { ...state, numOfCakes: state.numOfCakes - 1 }
 
   default:
@@ -36,9 +36,11 @@ const store = createStore(reducer)
 
 console.log('InitialState',store.getState())
 
-store.subscribe(() => console.log('updated state',store.getState()))
+const unsubscribe = store.subscribe(() => console.log('updated state',store.getState()))
 
 
-store.dispatch(console.log(store.getState()))
-store.dispatch(console.log(store.getState))
-store.dispatch(console.log(store.getState()))
+store.dispatch(orderCake())
+store.dispatch(orderCake())
+store.dispatch(orderCake())
+
+unsubscribe()
